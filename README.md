@@ -13,6 +13,17 @@ English | [简体中文](README_zh.md)
 - Based on Ubuntu 24.04 LTS AMI
 - Fully configurable network CIDR and subnet allocation
 
+## Architecture Decisions
+
+### NAT Gateway Configuration
+
+The project deliberately deploys a single NAT Gateway in the first public subnet as a balanced approach between:
+
+- **High Availability**: While multiple NAT Gateways (one per AZ) would provide the highest availability, a single NAT Gateway still serves all private subnets effectively.
+- **Cost Optimization**: NAT Gateway pricing includes both hourly charges and data processing fees. Using a single NAT Gateway significantly reduces operational costs while maintaining adequate functionality for most use cases.
+
+This design is suitable for non-critical workloads and development environments. For production environments with strict high-availability requirements, consider deploying additional NAT Gateways.
+
 ## Quick Start
 
 1. Configure AWS credentials
