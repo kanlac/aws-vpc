@@ -6,12 +6,15 @@ English | [简体中文](README_zh.md)
 
 ## Features
 
-- Automatically create a VPC network across multiple Availability Zones (2 by default)
+- Automatically create a VPC network across multiple Availability Zones
 - Public subnet configuration included
 - Automatic Internet Gateway configuration
 - Pre-configured security groups supporting SSH and HTTP access
 - Based on Ubuntu 24.04 LTS AMI
 - Fully configurable network CIDR and subnet allocation
+- High-availability Redis cluster using ElastiCache
+  - Deployed in private subnets for enhanced security
+  - Multi-node deployment across availability zones
 
 ## Architecture Decisions
 
@@ -40,5 +43,7 @@ terraform apply
 
 - `vpc_cidr_block`: VPC CIDR block (default: "10.0.0.0/16")
 - `project_prefix`: Resource name prefix
-- `enable_availability_zone_num`: Number of Availability Zones to enable
+- `enable_availability_zone_num`: Number of Availability Zones to enable (determines Redis cluster size)
 - `instance_type`: EC2 instance type
+- `public_subnet_offset`: Offset for public subnet CIDR blocks (default: 0, e.g., 10.0.0.0/24, 10.0.1.0/24)
+- `private_subnet_offset`: Offset for private subnet CIDR blocks (default: 10, e.g., 10.0.10.0/24, 10.0.11.0/24)
