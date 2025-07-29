@@ -27,7 +27,7 @@ variable "private_subnet_offset" {
 
 variable "enable_availability_zone_num" {
   type    = number
-  default = 2
+  default = 1
 }
 
 variable "instance_type" {
