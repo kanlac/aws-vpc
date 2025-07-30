@@ -1,0 +1,23 @@
+{
+    "name": "aws-terraform",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:debian",
+    "features": {
+        "ghcr.io/devcontainers/features/terraform:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "hashicorp.terraform",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "postCreateCommand": "terraform --version",
+    "remoteEnv": {
+        "HTTP_PROXY": "http://127.0.0.1:7897",
+        "HTTPS_PROXY": "http://127.0.0.1:7897",
+        "NO_PROXY": "localhost,127.0.0.1"
+    }
+}
