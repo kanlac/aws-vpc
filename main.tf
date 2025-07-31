@@ -1,6 +1,7 @@
 module "vpc" {
   source = "./modules/vpc"
 
+  region                       = "ap-southeast-2" # Sydney
   private_subnet_offset        = 10
   enable_availability_zone_num = var.zone_num
 }
