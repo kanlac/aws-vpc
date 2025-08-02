@@ -1,8 +1,8 @@
 # aws-vpc
 
-一键在 AWS 上创建生产级别的多可用区 VPC 网络环境。
-
 [English](README.md) | 简体中文
+
+> 本仓库演示如何使用 Terraform 搭建 VPC，并通过 module 部署 EKS 和 ElastiCache。
 
 ## 特性
 
@@ -15,6 +15,10 @@
 - 部署高可用的 Redis 集群（使用 ElastiCache）
   - 部署在私有子网中以增强安全性
   - 支持跨可用区的多节点部署
+
+## 架构图
+
+> Mermaid 架构图请见 [README.md](README.md#architecture-graph)
 
 ## 架构决策
 
